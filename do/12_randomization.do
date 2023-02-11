@@ -28,8 +28,28 @@ control villages is significant. Which means that female program placement
 in villages improves per capita expenditure */ 
 
 
+/* Alternately, you can run the simplest equation that 
+regresses per capita expenditure against the village program dummy: */
+reg lexptot progvillf
+/* The result gives the same effect (0.130), and it is statistically significant. 
+The previous regression estimates the overall impact of the village programs on 
+the per capita expenditure of households. It may be different from the impact on the 
+expenditure after holding other factors constant — that is, specifying the model adjusted 
+for covariates that affect the outcomes of interest. 
 
-Alternately, you can run the simplest equation that regresses per capita expenditure 
-against the village program dummy:
-reg lexptot progvillf;
-The result gives the same effect (0.130), which is signifi cant.
+
+Now, regress the same outcome (log of per capita household expenditures) 
+against the village program dummy plus other factors that may influence the expenditure. */
+reg lexptot progvillf sexhead agehead educhead lnland vaccess pcirr rice wheat milk oil egg [pw=weight]
+* After considering other covariates, the results indicate that the impact of the program is not statistically significant. 
+
+
+
+
+
+
+
+
+
+
+
