@@ -114,3 +114,14 @@ reg lexptot dfmfd sexhead agehead educhead lnland vaccess pcirr rice wheat milk 
 
 
 
+*** 5 - Measuring Spillover Effects of Microcredit Program Placement ***
+
+/* This exercise investigates whether program placement in villages has any impact on nonparticipants. 
+This test is similar to what was done at the beginning, but it excludes program participants. 
+Start with the simple model and restrict the sample to program villages */
+reg lexptot progvillf if dfmfd==0 [pw=weight]
+* The result does not show any spillover effects.
+
+* Next, run the extended model regression.
+reg lexptot progvillf sexhead agehead educhead lnland vaccess pcirr rice wheat milk oil egg if dfmfd==0 [pw=weight]
+* As can be seen from the output, program placement in villages shows no spillover effect after including the control variables
